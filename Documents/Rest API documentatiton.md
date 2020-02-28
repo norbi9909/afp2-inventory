@@ -27,11 +27,11 @@
   </tr>
   <tr>
     <td><p align="center">Response OK</p></td>
-    <td><p>status_code : 201, description : Sikeres bejelentkezés!</p></td>
+    <td><p>status_code : 201, description : Succesful login!</p></td>
   </tr>
   <tr>
     <td><p align="center">Response Error</p></td>
-    <td><p>status_code: 401, description: Sikertelen bejelentkezés!</p></td>
+    <td><p>status_code: 401, description: Bad username or password!</p></td>
   </tr>  
   <tr>
     <td><p align="center">Curl</p></td>
@@ -71,11 +71,11 @@
   </tr>
   <tr>
     <td><p align="center">Response OK</p></td>
-    <td><p>status_code : 200,	description : Sikeres kijelentkezés!</p></td>
+    <td><p>status_code : 200,	description : Succesful logout!</p></td>
   </tr>
   <tr>
     <td><p align="center">Response Error</p></td>
-    <td><p >status_code: 401, description: Helytelen token!</p></td>
+    <td><p >status_code: 401, description: Invalid token!</p></td>
   </tr>  
   <tr>
     <td><p align="center">Curl</p></td>
@@ -86,3 +86,190 @@
   </tr>  
 </table>
 
+
+<table>
+  <thead>
+  <tr>
+    <td><b><p align="center">Service name</p></b></td>
+    <td colspan=2><b><p align="center">ListInventoryForWorker</p></b></td>
+  </tr>
+  </thead>
+  <tr> 
+    <td><p align="center">Description</p></td>
+    <td><p>Returns json data about item list for Worker.</p></td>
+  </tr>
+    <td><p align="center">Method</p></td>
+    <td><p>GET</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Path</p></td>
+    <td><p>Inventory/Worker/List</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Parameters</p></td>
+    <td><p> Response Body:    
+       <li> "id" : value,   </li>
+       <li>"name" : value, </li> 
+       <li> "description" : value,   </li>
+       <li> "available" : value  </li>
+  </p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response OK</p></td>
+    <td><p>status_code : 201, description : Succesful query!</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response Error</p></td>
+    <td><p>status_code: 401, description: Unsuccesful query!</p></td>
+  </tr>  
+  <tr>
+    <td><p align="center">Curl</p></td>
+    <td><p>
+      <li>-H Content-Type:application/json   </li>
+      <li>-X GET   </li>
+      <li>-d '{"id": 37853, "name": guitar, "description": Electronic guitar, "available": 5}'  </li> 
+      <li>-v https://localhost:8080/Inventory/Worker/List </li>
+  </p></td> 
+  </tr>  
+</table>
+
+
+<table>
+  <thead>
+  <tr>
+    <td><b><p align="center">Service name</p></b></td>
+    <td colspan=2><b><p align="center">ListInventoryForAssemblyLine</p></b></td>
+  </tr>
+  </thead>
+  <tr> 
+    <td><p align="center">Description</p></td>
+    <td><p>Returns json data about item list for AssemblyLine.</p></td>
+  </tr>
+    <td><p align="center">Method</p></td>
+    <td><p>GET</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Path</p></td>
+    <td><p>Inventory/AssemblyLine/List</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Parameters</p></td>
+    <td><p> Response Body:    
+       <li> "id" : value,   </li>
+       <li>"name" : value, </li> 
+       <li> "description" : value,   </li>
+       <li> "available" : value   </li>
+  </p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response OK</p></td>
+    <td><p>status_code : 201, description : Succesful query!</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response Error</p></td>
+    <td><p>status_code: 401, description: Unsuccesful query!</p></td>
+  </tr>  
+  <tr>
+    <td><p align="center">Curl</p></td>
+    <td><p>
+      <li>-H Content-Type:application/json   </li>
+      <li>-X GET   </li>
+      <li>-d '{"id": 17650, "name": book, "description": Clean code book, "available": 2}'  </li> 
+      <li>-v https://localhost:8080/Inventory/AssemblyLine/List </li>
+  </p></td> 
+  </tr>  
+</table>
+
+
+<table>
+  <thead>
+  <tr>
+    <td><b><p align="center">Service name</p></b></td>
+    <td colspan=2><b><p align="center">ListInventoryForSalesTeam</p></b></td>
+  </tr>
+  </thead>
+  <tr> 
+    <td><p align="center">Description</p></td>
+    <td><p>Returns json data about item list for SalesTeam.</p></td>
+  </tr>
+    <td><p align="center">Method</p></td>
+    <td><p>GET</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Path</p></td>
+    <td><p>Inventory/SalesTeam/List</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Parameters</p></td>
+    <td><p> Response Body:    
+       <li> "id" : value,   </li>
+       <li>"name" : value, </li> 
+       <li> "description" : value,   </li>
+       <li> "available" : value   </li>
+  </p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response OK</p></td>
+    <td><p>status_code : 201, description : Succesful query!</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response Error</p></td>
+    <td><p>status_code: 401, description: Unsuccesful query!</p></td>
+  </tr>  
+  <tr>
+    <td><p align="center">Curl</p></td>
+    <td><p>
+      <li>-H Content-Type:application/json   </li>
+      <li>-X GET   </li>
+      <li>-d '{"id": 02451, "name": basketball, "description": High quality, "available": 7}'  </li> 
+      <li>-v https://localhost:8080/Inventory/SalesTeam/List </li>
+  </p></td> 
+  </tr>  
+</table>
+
+
+<table>
+  <thead>
+  <tr>
+    <td><b><p align="center">Service name</p></b></td>
+    <td colspan=2><b><p align="center">ListInventoryForPurchuseDepartment</p></b></td>
+  </tr>
+  </thead>
+  <tr> 
+    <td><p align="center">Description</p></td>
+    <td><p>Returns json data about item list for PurchuseDepartment.</p></td>
+  </tr>
+    <td><p align="center">Method</p></td>
+    <td><p>GET</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Path</p></td>
+    <td><p>Inventory/PurchuseDepartment/List</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Parameters</p></td>
+    <td><p> Response Body:    
+       <li> "id" : value,   </li>
+       <li>"name" : value, </li> 
+       <li> "description" : value,   </li>
+       <li> "available" : value   </li>
+  </p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response OK</p></td>
+    <td><p>status_code : 201, description : Succesful query!</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response Error</p></td>
+    <td><p>status_code: 401, description: Unsuccesful query!</p></td>
+  </tr>  
+  <tr>
+    <td><p align="center">Curl</p></td>
+    <td><p>
+      <li>-H Content-Type:application/json   </li>
+      <li>-X GET   </li>
+      <li>-d '{"id": 92356, "name": calculator, "description": Sencor calculator, "available": 1}'  </li> 
+      <li>-v https://localhost:8080/Inventory/PurchuseDepartment/List </li>
+  </p></td> 
+  </tr>  
+</table>
