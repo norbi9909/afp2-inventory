@@ -458,3 +458,50 @@
   </p></td> 
   </tr>  
 </table>
+
+
+<table>
+  <thead>
+  <tr>
+    <td><b><p align="center">Service name</p></b></td>
+    <td colspan=2><b><p align="center">TrackPackedProduct</p></b></td>
+  </tr>
+  </thead>
+  <tr> 
+    <td><p align="center">Description</p></td>
+    <td><p>Find products currently being transported</p></td>
+  </tr>
+    <td><p align="center">Method</p></td>
+    <td><p>GET</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Path</p></td>
+    <td><p>Inventory/FindPackedProduct</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Parameters</p></td>
+    <td><p> Request Body:    
+       <li> "id" : value,   </li>
+       <li> "name" : value, </li> 
+       <li> "description" : value,   </li>
+       <li> "available" : value   </li>
+  </p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response OK</p></td>
+    <td><p>status_code : 201, description : Product found!</p></td>
+  </tr>
+  <tr>
+    <td><p align="center">Response Error</p></td>
+    <td><p>status_code: 401, description: Product not found!</p></td>
+  </tr>  
+  <tr>
+    <td><p align="center">Curl</p></td>
+    <td><p>
+      <li>-H Content-Type:application/json   </li>
+      <li>-X POST   </li>
+      <li>-d '{"id": 37853, "description": Electronic guitar, "available": 0}'  </li> 
+      <li>-v https://localhost:8080/Inventory/TrackPackedProduct </li>
+  </p></td> 
+  </tr>  
+</table>
