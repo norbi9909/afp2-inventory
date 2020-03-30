@@ -1,7 +1,5 @@
 package com.inventory.demo.core.model;
 
-
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.UUID;
@@ -10,6 +8,7 @@ import java.util.UUID;
 public class Product {
 
     @Id
+    @GeneratedValue
     UUID productID;
     String productName;
     String productDescription;
