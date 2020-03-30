@@ -3,7 +3,6 @@ package com.inventory.demo.core.service;
 import com.inventory.demo.core.model.Product;
 import org.springframework.stereotype.Service;
 
-
 import java.util.List;
 import java.util.UUID;
 

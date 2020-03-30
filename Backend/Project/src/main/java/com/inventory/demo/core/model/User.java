@@ -1,6 +1,9 @@
 package com.inventory.demo.core.model;
 
-import javax.management.relation.Role;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.UUID;
 
 @Entity
 public class User {
@@ -8,16 +11,16 @@ public class User {
     @GeneratedValue
     UUID id;
     int userRole;
-    String firstname;
-    String lastname;
+    String firstName;
+    String lastName;
 
     public User(){}
 
-    public User(UUID id, int userRole, String firstname, String lastname) {
+    public User(UUID id, int userRole, String firstName, String lastName) {
         this.id = id;
         this.userRole = userRole;
-        this.firstname = firstname;
-        this.lastname = lastname;
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
     public void setId(UUID id) {
@@ -28,12 +31,12 @@ public class User {
         this.userRole = userRole;
     }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public UUID getId() {
@@ -44,11 +47,11 @@ public class User {
         return userRole;
     }
 
-    public String getFirstname() {
-        return firstname;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public String getLastname() {
-        return lastname;
+    public String getLastName() {
+        return lastName;
     }
 }

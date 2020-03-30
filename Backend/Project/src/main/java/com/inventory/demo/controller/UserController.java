@@ -1,12 +1,12 @@
 package com.inventory.demo.controller;
-import com.inventory.demo.core.model.Product;
-import com.inventory.demo.core.service.ProductManager;
+import com.inventory.demo.core.model.User;
+import com.inventory.demo.core.service.UserManager;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
+import java.util.List;
 
 
 @RestController
@@ -19,7 +19,7 @@ public class UserController {
         this.manager = manager;
     }
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public Collection<User> listAllUser()
+    public List<User> listAllUser()
     {
         return manager.listAllUser();
     }

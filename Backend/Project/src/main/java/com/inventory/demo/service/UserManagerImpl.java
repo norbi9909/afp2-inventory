@@ -1,8 +1,8 @@
 package com.inventory.demo.service;
 
-import com.inventory.demo.core.model.Product;
-import com.inventory.demo.core.service.ProductManager;
-import com.inventory.demo.dao.ProductRepository;
+import com.inventory.demo.core.model.User;
+import com.inventory.demo.core.service.UserManager;
+import com.inventory.demo.dao.UserRepository;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,22 +16,22 @@ public class UserManagerImpl implements UserManager {
     }
 
     @Override
-    public List<User> listAllProducts() {
+    public List<User> listAllUser() {
         return repo.findAll();
     }
 
     @Override
-    public User saveProduct(Product products) {
-        return repo.save(products);
+    public User saveUser(User user) {
+        return repo.save(user);
     }
 
     @Override
-    public User getProduct(UUID id) {
+    public User getUser(UUID id) {
         return repo.findById(id).get();
     }
 
     @Override
-    public void deleteProduct(UUID id) {
+    public void deleteUser(UUID id) {
         repo.deleteById(id);
     }
 }
