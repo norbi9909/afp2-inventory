@@ -14,4 +14,8 @@ public interface ProductManager {
     public Product getProduct(UUID id);
     public void deleteProduct(UUID id);
 
+
+
+
+
 }

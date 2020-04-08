@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class GreetingsPage {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String hello( String text){
-        return "Start Page";
+        return "This is the start page of the Inventory Project";
     }
 }
