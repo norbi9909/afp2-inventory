@@ -9,14 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(value = "/PurchaseDepartment")
+@RequestMapping(value = "/purchasedepartment")
 public class PurchaseDepartmentController {
     private final ProductManager manager;
 
     public PurchaseDepartmentController(ProductManager manager) {
         this.manager = manager;
     }
-    @RequestMapping(value = "/PurchaseDepartment/List",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public Collection<Product> listAllProduct()
     {
         return manager.listAllProducts();

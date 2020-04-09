@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(value = "/AssemblyLine")
+@RequestMapping(value = "/assemblyline")
 public class AssemblyLineController {
 
     private final ProductManager manager;
@@ -17,7 +17,7 @@ public class AssemblyLineController {
     public AssemblyLineController(ProductManager manager) {
         this.manager = manager;
     }
-    @RequestMapping(value = "/AssemblyLine/List",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public Collection<Product> listAllProduct()
     {
         return manager.listAllProducts();

@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Collection;
 @RestController
-@RequestMapping(value = "/Worker")
+@RequestMapping(value = "/worker")
 public class WorkerController {
     private final ProductManager manager;
 
     public WorkerController(ProductManager manager) {
         this.manager = manager;
     }
-    @RequestMapping(value = "/Worker/List",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public Collection<Product> listAllProduct()
     {
         return manager.listAllProducts();

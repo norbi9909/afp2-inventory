@@ -18,24 +18,24 @@ public class ProductController {
         this.manager = manager;
     }
 
-    @RequestMapping(value = "/product/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public Collection<Product> listAllProduct()
     {
         return manager.listAllProducts();
     }
 
-    @RequestMapping(value = "/product/save",method = RequestMethod.POST)
+    @RequestMapping(value = "/save",method = RequestMethod.POST)
         public void recordAuthor(@RequestBody Product product) {
         System.out.println(product);
         manager.saveProduct(product);
     }
-    @RequestMapping(value = "/product/delete/{id}")
+    @RequestMapping(value = "/delete/{id}")
         public String deleteProduct(@PathVariable(name = "id") UUID id)
         {
             manager.deleteProduct(id);
             return "redirect:/";
         }
-    @RequestMapping("/product/edit/{id}")
+    @RequestMapping("/edit/{id}")
     public ModelAndView showEditProductsForm(@PathVariable(name = "id") UUID id)
     {
         ModelAndView mav = new ModelAndView("edit_product");
@@ -43,7 +43,7 @@ public class ProductController {
         mav.addObject("products",product);
         return mav;
     }
-    @RequestMapping("/product/set")
+    @RequestMapping("/set")
     public String showNewProductsForm(Model model)
     {
         Product product = new Product();

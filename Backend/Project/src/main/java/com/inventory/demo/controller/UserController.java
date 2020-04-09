@@ -18,12 +18,12 @@ public class UserController {
     public UserController(UserManager manager) {
         this.manager = manager;
     }
-    @RequestMapping(value = "/",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public List<User> listAllUser()
     {
         return manager.listAllUser();
     }
-    @RequestMapping(value = "/User/List",method = RequestMethod.POST)
+    @RequestMapping(value = "/save",method = RequestMethod.POST)
         public void recordUser(@RequestBody User user){
         System.out.println(user);
         manager.saveUser(user);

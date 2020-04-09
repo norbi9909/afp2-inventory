@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Collection;
 
 @RestController
-@RequestMapping(value = "/Sales")
+@RequestMapping(value = "/sales")
 public class SalesTeamController {
     private final ProductManager manager;
 
@@ -17,7 +17,7 @@ public class SalesTeamController {
         this.manager = manager;
     }
 
-    @RequestMapping(value = "/Sales/List",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public Collection<Product> listAllProduct()
     {
         return manager.listAllProducts();
