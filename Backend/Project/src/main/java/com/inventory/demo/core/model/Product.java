@@ -1,27 +1,35 @@
 package com.inventory.demo.core.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.UUID;
 
 @Entity
+@Table(name = "product")
 public class Product {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue (generator = "uuid2")
+    @GenericGenerator(name = "uuid2",strategy = "uuid2")
+    @Column(name = "productID")
     UUID productID;
+    @Column(name = "product_Name")
     String productName;
+    @Column(name = "product_Description")
     String productDescription;
+    @Column(name = "product_Count")
     int productCount;
+    @Column(name = "product_Price")
     int productPrice;
+    @Column(name = "product_is_Available")
     boolean productIsAvailable;
 
     public Product()
     {
     }
     public Product(UUID productID, String productName, String productDescription, int productCount, int productPrice, boolean productIsAvailable) {
-        this.productID = UUID.randomUUID();
+        this.productID = productID;
         this.productName = productName;
         this.productDescription = productDescription;
         this.productCount = productCount;

@@ -1,11 +1,13 @@
 package com.inventory.demo.controller;
 import com.inventory.demo.core.model.Product;
 import com.inventory.demo.core.service.ProductManager;
+import org.apache.catalina.Manager;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -19,22 +21,22 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/list",method = RequestMethod.GET)
-    public Collection<Product> listAllProduct()
+    public List<Product> listAllProduct()
     {
         return manager.listAllProducts();
     }
-
     @RequestMapping(value = "/save",method = RequestMethod.POST)
         public void recordAuthor(@RequestBody Product product) {
         System.out.println(product);
         manager.saveProduct(product);
     }
     @RequestMapping(value = "/delete/{id}")
-        public String deleteProduct(@PathVariable(name = "id") UUID id)
-        {
-            manager.deleteProduct(id);
-            return "redirect:/";
-        }
+    public String deleteProduct(@PathVariable(name = "id") UUID id)
+    {
+        manager.deleteProduct(id);
+        return "You are delete product by id:" + id;
+
+    }
     @RequestMapping("/edit/{id}")
     public ModelAndView showEditProductsForm(@PathVariable(name = "id") UUID id)
     {
