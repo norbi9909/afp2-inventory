@@ -27,6 +27,7 @@ public class ProductController {
     }
     @RequestMapping(value = "/save",method = RequestMethod.POST)
         public void recordAuthor(@RequestBody Product product) {
+
         System.out.println(product);
         manager.saveProduct(product);
     }
