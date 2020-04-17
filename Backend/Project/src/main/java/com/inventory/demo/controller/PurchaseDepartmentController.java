@@ -30,5 +30,16 @@ public class PurchaseDepartmentController {
         return "You are delete product by id:" + id;
 
     }
+	
+	@RequestMapping(value = "/save",method=RequestMethod.POST)
+    public void insertProduct(@RequestBody Product product){
+        Product p = new Product();
+        p.setProductName(product.getProductName());
+        p.setProductDescription(product.getProductDescription());
+        p.setProductCount(product.getProductCount());
+        p.setProductPrice(product.getProductPrice());
+        p.setProductIsAvailable(product.isProductIsAvailable());
+        manager.saveProduct(p);
+	}
 
 }
