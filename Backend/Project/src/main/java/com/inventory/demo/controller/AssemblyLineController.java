@@ -2,10 +2,7 @@ package com.inventory.demo.controller;
 
 import com.inventory.demo.core.model.Product;
 import com.inventory.demo.core.service.ProductManager;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.UUID;
@@ -31,5 +28,22 @@ public class AssemblyLineController {
         manager.deleteProduct(id);
         return "You are delete product by id:" + id;
 
+    }
+
+    @RequestMapping(value = "/set",method = RequestMethod.PUT)
+    public void updateProduct(@RequestBody Product product) throws Exception {
+        Product p;
+
+        try{
+            p = manager.getProduct(product.getProductID());
+        }catch (Exception e){
+            throw new Exception("No object found with this ID");
+        }
+
+        if(!p.getProductName().equals(product.getProductName()) || p.getProductPrice() != product.getProductPrice() || p.getProductCount() != product.getProductCount()){
+            throw new Exception("You can only change the product description!");
+        }
+
+        manager.saveProduct(product);
     }
 }
