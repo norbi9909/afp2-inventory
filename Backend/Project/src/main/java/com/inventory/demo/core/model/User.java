@@ -1,5 +1,6 @@
 package com.inventory.demo.core.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,9 +10,13 @@ import java.util.UUID;
 public class User {
     @Id
     @GeneratedValue
+    @Column(name = "id")
     UUID id;
+    @Column(name = "user_role")
     int userRole;
+    @Column(name = "first_name")
     String firstName;
+    @Column(name = "last_name")
     String lastName;
 
     public User(){}

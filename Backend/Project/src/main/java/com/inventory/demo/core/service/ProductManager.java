@@ -1,5 +1,6 @@
 package com.inventory.demo.core.service;
 
+import com.inventory.demo.Exception.ProductException;
 import com.inventory.demo.core.model.Product;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +10,10 @@ import java.util.UUID;
 @Service
 public interface ProductManager {
 
-    public List<Product> listAllProducts();
+    public List<Product> listAllProducts() throws ProductException;
     public Product saveProduct(Product products);
-    public Product getProduct(UUID id);
-    public void deleteProduct(UUID id);
+    public Product getProduct(UUID id) throws ProductException;
+    public void deleteProduct(UUID id) throws ProductException;
 
 
 
