@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.util.UUID;
 
 @Entity
-public class User {
+public class User{
     @Id
     @GeneratedValue
     @Column(name = "id")
@@ -18,6 +18,8 @@ public class User {
     String firstName;
     @Column(name = "last_name")
     String lastName;
+    @Column(name = "password")
+    String password;
 
     public User(){}
 
@@ -58,5 +60,14 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

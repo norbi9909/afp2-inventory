@@ -30,6 +30,7 @@ public class UserManagerImpl implements UserManager {
         return repo.findById(id).get();
     }
 
+
     @Override
     public void deleteUser(UUID id) {
         repo.deleteById(id);

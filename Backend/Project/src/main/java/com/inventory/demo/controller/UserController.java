@@ -35,21 +35,33 @@ public class UserController {
     @RequestMapping(value = "/delete/{id}")
     public String deleteUser(@PathVariable(name = "id") UUID id)
     {
-        manager.deleteUser(id);
-        return "You are successfully delete user by id:" + id;
+        if(LoginController.loggedInUserRole == 1){
+            manager.deleteUser(id);
+            return "You have successfully deleted a user by id:" + id;
+        } else{
+            return "You don't have access to this method!";
+        }
+
     }
 
     @GetMapping(value = "/list/{id}")
     public User getUserByID(@PathVariable(name = "id") UUID id) throws Exception {
-        try
-        {
-            manager.getUser(id);
+        if(LoginController.loggedInUserRole == 1){
+            try
+            {
+                manager.getUser(id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Dont exist user with this id: " + id);
+            }
+            return manager.getUser(id);
+        } else{
+            throw new Exception("You don't have access to this method!");
         }
-        catch (Exception e)
-        {
-            throw new Exception("Dont exist user with this id: " + id);
-        }
-        return manager.getUser(id);
+
     }
+
+
 }
 

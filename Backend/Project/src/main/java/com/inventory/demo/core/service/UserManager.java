@@ -13,5 +13,4 @@ public interface UserManager {
     public User saveUser(User user);
     public User getUser(UUID id);
     public void deleteUser(UUID id);
-
 }

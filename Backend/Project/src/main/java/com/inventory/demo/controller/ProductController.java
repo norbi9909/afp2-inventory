@@ -29,10 +29,14 @@ public class ProductController {
             return manager.listAllProducts();
     }
     @RequestMapping(value = "/save",method = RequestMethod.POST)
-        public void recordProduct(@RequestBody Product product) {
+        public void recordProduct(@RequestBody Product product) throws Exception {
+        if(LoginController.loggedInUserRole == 1){
+            System.out.println(product);
+            manager.saveProduct(product);
+        } else{
+            throw new Exception("You don't have access to this method!");
+        }
 
-        System.out.println(product);
-        manager.saveProduct(product);
     }
     @GetMapping(value = "/list/{id}")
     public Product getProductByID(@PathVariable(name = "id") UUID id) throws ProductException {
@@ -42,35 +46,46 @@ public class ProductController {
         }
         catch (Exception e)
         {
-            throw new ProductException("Dont exist product with this id: " + id);
+            throw new ProductException("There is no existing product with id: " + id);
         }
         return manager.getProduct(id);
     }
 
     @RequestMapping(value = "/delete/{id}")
-    public String deleteProduct(@PathVariable(name = "id") UUID id) throws ProductException{
-        try
-        {
-            manager.deleteProduct(id);
+    public String deleteProduct(@PathVariable(name = "id") UUID id) throws Exception {
+        if(LoginController.loggedInUserRole == 1) {
+            try {
+                manager.deleteProduct(id);
+            } catch (Exception e) {
+                throw new ProductException("There is no existing product with id: " + id);
+            }
+            return "You have successfully deleted a product by id:" + id;
+        }else{
+            return "You don't have access to this method!";
         }
-        catch (Exception e)
-        {
-            throw new ProductException("Can't delete because dont exist product with this id:" + id);
-        }
-        return "You are successfully delete product by id:" + id;
     }
     @RequestMapping("/edit/{id}")
-    public ModelAndView showEditProductsForm(@PathVariable(name = "id") UUID id) throws ProductException {
-        ModelAndView mav = new ModelAndView("edit_product");
-        Product product = manager.getProduct(id);
-        mav.addObject("products",product);
-        return mav;
+    public ModelAndView showEditProductsForm(@PathVariable(name = "id") UUID id) throws Exception {
+        if(LoginController.loggedInUserRole == 1){
+            ModelAndView mav = new ModelAndView("edit_product");
+            Product product = manager.getProduct(id);
+            mav.addObject("products",product);
+            return mav;
+        }else{
+            throw new Exception("You don't have access to this method!");
+        }
+
     }
     @RequestMapping("/set")
-    public String showNewProductsForm(Model model)
-    {
-        Product product = new Product();
-        model.addAttribute("product",product);
-        return "new_product";
+    public String showNewProductsForm(Model model) throws Exception {
+        if(LoginController.loggedInUserRole == 1){
+            Product product = new Product();
+            model.addAttribute("product",product);
+            return "new_product";
+        }else{
+            System.out.println("You don't have access to this method!");
+            throw new Exception("You don't have access to this method!");
+        }
+
     }
 }
