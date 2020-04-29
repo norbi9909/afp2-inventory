@@ -62,11 +62,11 @@ public class AssemblyLineController {
         try{
             p = manager.getProduct(product.getProductID());
         }catch (Exception e){
-            throw new Exception("No object found with this ID");
+            throw new ProductException("No object found with this ID");
         }
 
         if(!p.getProductName().equals(product.getProductName()) || p.getProductPrice() != product.getProductPrice() || p.getProductCount() != product.getProductCount()){
-            throw new Exception("You can only change the product description!");
+            throw new ProductException("You can only change the product description!");
         }
 
         manager.saveProduct(product);

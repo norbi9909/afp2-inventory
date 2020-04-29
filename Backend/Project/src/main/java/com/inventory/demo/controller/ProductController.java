@@ -34,7 +34,7 @@ public class ProductController {
             System.out.println(product);
             manager.saveProduct(product);
         } else{
-            throw new Exception("You don't have access to this method!");
+            throw new ProductException("You don't have access to this method!");
         }
 
     }
@@ -61,7 +61,7 @@ public class ProductController {
             }
             return "You have successfully deleted a product by id:" + id;
         }else{
-            return "You don't have access to this method!";
+            throw new ProductException( "You don't have access to this method!");
         }
     }
     @RequestMapping("/edit/{id}")
@@ -72,7 +72,7 @@ public class ProductController {
             mav.addObject("products",product);
             return mav;
         }else{
-            throw new Exception("You don't have access to this method!");
+            throw new ProductException("You don't have access to this method!");
         }
 
     }
@@ -84,7 +84,7 @@ public class ProductController {
             return "new_product";
         }else{
             System.out.println("You don't have access to this method!");
-            throw new Exception("You don't have access to this method!");
+            throw new ProductException("You don't have access to this method!");
         }
 
     }
