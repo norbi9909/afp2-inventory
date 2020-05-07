@@ -24,10 +24,17 @@ class App extends React.Component {
         UserStore.isLoggedIn = true;
         UserStore.username = result.username;
       }
-    }
 
-    catch(e){
-      console.log(e)
+      else {
+        UserStore.loading = false;
+        UserStore.isLoggedIn = false;
+      }
+
+    }
+    catch(e) {
+      UserStore.loading = false;
+      UserStore.isLoggedIn = false;
+
     }
   }
 
