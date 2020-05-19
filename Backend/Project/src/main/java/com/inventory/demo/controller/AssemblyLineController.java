@@ -10,6 +10,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/assemblyline")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AssemblyLineController {
 
     private final ProductManager manager;

@@ -2,6 +2,7 @@ package com.inventory.demo.controller;
 
 import com.inventory.demo.core.model.User;
 import com.inventory.demo.core.service.UserManager;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,6 +10,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/auth")
+@CrossOrigin(origins = "http://localhost:3000")
 public class LoginController {
 
     private final UserManager manager;

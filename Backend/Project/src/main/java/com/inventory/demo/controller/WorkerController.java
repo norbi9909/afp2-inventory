@@ -10,6 +10,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/worker")
+@CrossOrigin(origins = "http://localhost:3000")
 public class WorkerController {
     private final ProductManager manager;
 

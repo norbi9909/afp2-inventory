@@ -10,6 +10,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(value = "/sales")
+@CrossOrigin(origins = "http://localhost:3000")
 public class SalesTeamController {
     private final ProductManager manager;
 
