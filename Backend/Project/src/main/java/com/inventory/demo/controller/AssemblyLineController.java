@@ -31,7 +31,7 @@ public class AssemblyLineController {
     }
 
     @GetMapping(value = "/list/{id}")
-    public Product getProductByID(@PathVariable(name = "id") UUID id) throws ProductException {
+    public Product getProductByID(@PathVariable(name = "id") Long id) throws ProductException {
         try
         {
             manager.getProduct(id);
@@ -44,7 +44,7 @@ public class AssemblyLineController {
     }
 
     @RequestMapping(value = "/delete/{id}")
-    public String deleteProduct(@PathVariable(name = "id") UUID id) throws ProductException{
+    public String deleteProduct(@PathVariable(name = "id") Long id) throws ProductException{
         try
         {
             manager.deleteProduct(id);

@@ -26,12 +26,12 @@ public class ProductManagerImplementation implements ProductManager {
     }
 
     @Override
-    public Product getProduct(UUID id) {
+    public Product getProduct(Long id) {
         return repo.findById(id).get();
     }
 
     @Override
-    public void deleteProduct(UUID id) {
+    public void deleteProduct(Long id) {
         repo.deleteById(id);
     }
 }

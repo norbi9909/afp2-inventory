@@ -27,7 +27,7 @@ public class PurchaseDepartmentController {
         return manager.listAllProducts();
     }
     @GetMapping(value = "/list/{id}")
-    public Product getProductByID(@PathVariable(name = "id") UUID id) throws ProductException {
+    public Product getProductByID(@PathVariable(name = "id") Long id) throws ProductException {
         try
         {
             manager.getProduct(id);
@@ -39,7 +39,7 @@ public class PurchaseDepartmentController {
         return manager.getProduct(id);
     }
     @RequestMapping(value = "/delete/{id}")
-    public String deleteProduct(@PathVariable(name = "id") UUID id) throws ProductException{
+    public String deleteProduct(@PathVariable(name = "id") Long id) throws ProductException{
         try
         {
             manager.deleteProduct(id);
@@ -51,7 +51,7 @@ public class PurchaseDepartmentController {
         return "You are successfully delete product by id:" + id;
     }
 	
-	@RequestMapping(value = "/save",method=RequestMethod.POST)
+	@PostMapping(value = "/save")
     public void insertProduct(@RequestBody Product product){
         Product p = new Product();
         p.setProductName(product.getProductName());

@@ -27,19 +27,21 @@ export default class ProductList extends Component{
     }
 
     deleteProduct = (productID) => {
-        axios.delete("http://localhost:8081/assemblyline/delete/"+productID)
+        axios.delete("http://localhost:8081/product/delete/"+productID)
             .then(response => {
                 if(response.data != null){
                     this.setState({"show":true});
-                    setTimeout(() => this.setState({"show":false}), 3000);
+                    setTimeout(() => this.setState({"show":false}), 1500);
                     this.setState({
-                        products: this.state.products.filter(product => product.productID !== productID)
+
+                        list: this.state.list.filter(product => product.productID !== productID)
                     })
                 } else {
                     this.setState({"show":false});
                 }
             });
     }
+
 
     render(){
         return(

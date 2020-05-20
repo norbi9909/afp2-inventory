@@ -12,8 +12,8 @@ public interface ProductManager {
 
     public List<Product> listAllProducts() throws ProductException;
     public Product saveProduct(Product products);
-    public Product getProduct(UUID id) throws ProductException;
-    public void deleteProduct(UUID id) throws ProductException;
+    public Product getProduct(Long id) throws ProductException;
+    public void deleteProduct(Long id) throws ProductException;
 
 
 

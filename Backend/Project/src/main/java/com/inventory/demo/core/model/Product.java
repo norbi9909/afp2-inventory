@@ -1,19 +1,15 @@
 package com.inventory.demo.core.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Table(name = "product")
 public class Product {
 
     @Id
-    @GeneratedValue (generator = "uuid2")
-    @GenericGenerator(name = "uuid2",strategy = "uuid2")
+    @GeneratedValue
     @Column(name = "productID")
-    UUID productID;
+    Long productID;
     @Column(name = "product_Name")
     String productName;
     @Column(name = "product_Description")
@@ -28,7 +24,7 @@ public class Product {
     public Product()
     {
     }
-    public Product(UUID productID, String productName, String productDescription, int productCount, int productPrice, boolean productIsAvailable) {
+    public Product(Long productID, String productName, String productDescription, int productCount, int productPrice, boolean productIsAvailable) {
         this.productID = productID;
         this.productName = productName;
         this.productDescription = productDescription;
@@ -37,7 +33,7 @@ public class Product {
         this.productIsAvailable = productIsAvailable;
     }
 
-    public UUID getProductID() {
+    public Long getProductID() {
         return productID;
     }
 

@@ -34,11 +34,11 @@ export default class Product extends Component{
             productIsAvailable: this.state.productIsAvailable
         };
 
-        axios.post("http://localhost:8081/purchasedepartment/save", product)
+        axios.post("http://localhost:8081/product/save", product)
             .then(response => {
                 if(response.data != null){
                     this.setState({"show":true});
-                    setTimeout(() => this.setState({"show":false}), 3000);
+                    setTimeout(() => this.setState({"show":false}), 1500);
                 } else {
                     this.setState({"show":false});
                 }
