@@ -52,4 +52,9 @@ public class ProductController {
                 manager.deleteProduct(id);
             return "You have successfully deleted a product by id:" + id;
     }
+    @PutMapping(value = "/update/{id}")
+    public void updateProduct(@PathVariable(name = "id")Long id)
+    {
+        manager.updateProduct(id);
+    }
 }

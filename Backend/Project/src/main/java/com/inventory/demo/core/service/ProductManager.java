@@ -14,6 +14,7 @@ public interface ProductManager {
     public Product saveProduct(Product products);
     public Product getProduct(Long id) throws ProductException;
     public void deleteProduct(Long id) throws ProductException;
+    public void updateProduct (Long id);
 
 
 

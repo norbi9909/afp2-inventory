@@ -34,4 +34,10 @@ public class ProductManagerImplementation implements ProductManager {
     public void deleteProduct(Long id) {
         repo.deleteById(id);
     }
+
+    @Override
+    public void updateProduct(Long id) {
+        Product product = repo.findById(id).get();
+        repo.save(product);
+    }
 }
