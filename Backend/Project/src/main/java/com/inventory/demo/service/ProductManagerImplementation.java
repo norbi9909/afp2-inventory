@@ -5,7 +5,6 @@ import com.inventory.demo.core.service.ProductManager;
 import com.inventory.demo.dao.ProductRepository;
 
 import java.util.List;
-import java.util.UUID;
 
 public class ProductManagerImplementation implements ProductManager {
 
@@ -22,7 +21,8 @@ public class ProductManagerImplementation implements ProductManager {
 
     @Override
     public Product saveProduct(Product products) {
-        return repo.save(products);
+         return repo.save(products);
+        //return products;
     }
 
     @Override

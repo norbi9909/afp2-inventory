@@ -108,7 +108,7 @@ export default class Product extends Component{
                                     type="text" name="productIsAvailable"
                                     value={productIsAvailable} onChange={this.productChange}
                                     className={"bg-dark text-white"}
-                                    placeholder="Yes or No" />
+                                    placeholder="True or False" />
                             </Form.Group>
                         </Form.Row>
                     </Card.Body>

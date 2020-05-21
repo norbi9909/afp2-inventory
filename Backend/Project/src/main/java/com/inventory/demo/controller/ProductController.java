@@ -32,13 +32,7 @@ public class ProductController {
     }
     @PostMapping(value = "/save")
     public void insertProduct(@RequestBody Product product){
-        Product p = manager.saveProduct(product);
-        p.setProductName(product.getProductName());
-        p.setProductDescription(product.getProductDescription());
-        p.setProductCount(product.getProductCount());
-        p.setProductPrice(product.getProductPrice());
-        p.setProductIsAvailable(product.isProductIsAvailable());
-        //manager.saveProduct(p);
+        manager.saveProduct(product);
     }
     @GetMapping(value = "/list/{id}")
     public Product getProductByID(@PathVariable(name = "id") Long id) throws ProductException {
